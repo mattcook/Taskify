@@ -27,6 +27,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  .state('login', {
+    url: "/login",
+    templateUrl: "templates/login.html",
+    controller: 'LoginCtrl'
+  })
+
   .state('app', {
     url: "/app",
     abstract: true,
@@ -44,6 +50,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     }
   })
 
+  .state('app.categorization', {
+    url: "/image-categorization",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/categories/categorization.html",
+        controller: 'CategorizationCtrl'
+      }
+    }
+  })
+
   .state('app.single', {
     url: "/type/:typeId",
     views: {
@@ -52,7 +68,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
         controller: 'TypeCtrl'
       }
     }
+  })
+
+  .state('app.info-search', {
+    url: "/info-search",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/categories/info_search.html",
+        controller: 'InfoSearchCtrl'
+      }
+    }
   });
+
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/types');
+  $urlRouterProvider.otherwise('/login');
 });

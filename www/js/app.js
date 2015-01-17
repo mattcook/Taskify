@@ -30,22 +30,31 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-    .state('app.categories', {
-      url: "/categories",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/categories.html",
-          controller: 'CategoriesCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: "/category/:catId",
+  .state('app.categories', {
+    url: "/categories",
     views: {
       'menuContent': {
-        templateUrl: "templates/category.html",
-        controller: 'CategoryCtrl'
+        templateUrl: "templates/categories.html",
+        controller: 'CategoriesCtrl'
+      }
+    }
+  })
+
+  .state('app.categorization', {
+    url: "/image-categorization",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/categories/categorization.html",
+        controller: 'CategorizationCtrl'
+      }
+    }
+  })
+  .state('app.info-search', {
+    url: "/info-search",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/categories/info_search.html",
+        controller: 'InfoSearchCtrl'
       }
     }
   });

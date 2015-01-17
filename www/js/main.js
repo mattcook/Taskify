@@ -31,22 +31,31 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-    .state('app.categories', {
-      url: "/categories",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/categories.html",
-          controller: 'CategoriesCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: "/category/:catId",
+  .state('app.categories', {
+    url: "/categories",
     views: {
       'menuContent': {
-        templateUrl: "templates/category.html",
-        controller: 'CategoryCtrl'
+        templateUrl: "templates/categories.html",
+        controller: 'CategoriesCtrl'
+      }
+    }
+  })
+
+  .state('app.categorization', {
+    url: "/image-categorization",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/categories/categorization.html",
+        controller: 'CategorizationCtrl'
+      }
+    }
+  })
+  .state('app.info-search', {
+    url: "/info-search",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/categories/info_search.html",
+        controller: 'InfoSearchCtrl'
       }
     }
   });
@@ -70,17 +79,21 @@ angular.module('starter.controllers', [])
 
 .controller('CategoriesCtrl', ["$scope", function($scope) {
   $scope.categories = [
-    { title: 'Image Categorization', id: 1 },
-    { title: 'Information Search', id: 2 },
-    { title: 'Image Filtering', id: 3 },
-    { title: 'Emotion Rating', id: 4 },
-    { title: 'Image Tagging', id: 5 },
-    { title: 'Transcription', id: 6 }
-  ];
+      { title: 'Image Categorization', id: 'image-categorization' , tasks: 321, icon: 'icon ion-ios7-filing-outline'},
+      { title: 'Information Search', id: 'info-search', tasks: 119, icon: 'icon ion-ios7-search'},
+      { title: 'Image Filtering', id: 'filtering', tasks: 13, icon: 'icon ion-ios7-settings'},
+      { title: 'Emotion Rating', id: 'emotion-rating', tasks: 78, icon: 'icon ion-ios7-star-outline'},
+      { title: 'Image Tagging', id: 'image-tagging', tasks: 62, icon: 'icon ion-ios7-pricetag-outline'},
+      { title: 'Transcription', id: 'transcription', tasks: 193, icon: 'icon ion-ios7-compose-outline'}
+      ];
 }])
 
-.controller('CategoryCtrl', ["$scope", "$stateParams", function($scope, $stateParams) {
-  $scope.pid = $stateParams['catId']
+.controller('CategorizationCtrl', ["$scope", "$stateParams", function($scope, $stateParams) {
+  $scope.pid = 1
+}])
+
+.controller('InfoSearchCtrl', ["$scope", "$stateParams", function($scope, $stateParams) {
+  $scope.pid = 2
 }]);
 
 },{}]},{},["./www/js/app.js","./www/js/controllers.js"]);

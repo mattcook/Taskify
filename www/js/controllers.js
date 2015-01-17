@@ -1,7 +1,7 @@
 angular.module('starter.controllers', ['firebase'])
 
 .controller('AppCtrl', ['currentAuth', function($scope, $timeout) {
-  
+
   // Perform the login action when the user submits the login form
 }])
 
@@ -69,7 +69,9 @@ angular.module('starter.controllers', ['firebase'])
   }
 }])
 
-.controller('CategorizationCtrl', ['currentAuth', function($scope, $stateParams, $ionicModal, $firebase) {
+.controller('CategorizationCtrl',
+            ['$scope', '$stateParams', '$ionicModal', '$firebase',
+              function($scope, $stateParams, $ionicModal, $firebase) {
   'use strict';
 
   $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."

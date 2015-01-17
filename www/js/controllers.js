@@ -13,11 +13,11 @@ angular.module('starter.controllers', [])
 
 .controller('CategoriesCtrl', function($scope) {
   $scope.categories = [
-    { title: 'Categorization', id: 1 },
-    { title: 'Data Collection', id: 2 },
-    { title: 'Image Moderation', id: 3 },
-    { title: 'Sentiment', id: 4 },
-    { title: 'Image tagging', id: 5 },
+    { title: 'Image Categorization', id: 1 },
+    { title: 'Information Search', id: 2 },
+    { title: 'Image Filtering', id: 3 },
+    { title: 'Emotion Rating', id: 4 },
+    { title: 'Image Tagging', id: 5 },
     { title: 'Transcription', id: 6 }
   ];
 })

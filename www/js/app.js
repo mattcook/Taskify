@@ -27,6 +27,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  .state('login', {
+    url: "/login",
+    templateUrl: "templates/login.html",
+    controller: 'LoginCtrl'
+  })
+
   .state('app', {
     url: "/app",
     abstract: true,
@@ -54,5 +60,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/categories');
+  $urlRouterProvider.otherwise('/login');
 });

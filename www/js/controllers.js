@@ -66,7 +66,7 @@ angular.module('starter.controllers', ['firebase'])
   $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
   popupModal($scope, $ionicModal);
   $scope.openGoogle = function($scope){
-    window.open('http://google.com', '_blank');
+  window.open('http://google.com', '_blank', 'location=yes');
   };
 })
 
@@ -76,11 +76,9 @@ angular.module('starter.controllers', ['firebase'])
 })
 
 .controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
+  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
   popupModal($scope, $ionicModal);
 });
-
-
 
 var popupModal = function($scope, $ionicModal){
   $ionicModal.fromTemplateUrl('templates/help-modal.html', {

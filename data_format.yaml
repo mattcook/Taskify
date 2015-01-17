@@ -1,0 +1,28 @@
+tasks:
+  - idGeneratedFromPush: [type]
+
+types:
+  categorization:
+    - idGeneratedFromPush:
+      status: 'open|locked|completed'
+      type: 'type'
+      timestamps:
+        completed: null
+        added: 'time'
+        updated: 'time'
+      title: 'title'
+      description: 'long description'
+      price: 0.05
+      categories:
+        - generatedCatIDs: 'name'
+      data:
+        - idOfTaskData:
+          title: 'header title'
+          details: 'detailed text...'
+          photo: \\url
+
+open:
+  - idGeneratedFromPush: [type]
+
+completed:
+  - idGeneratedFromPush: [type]

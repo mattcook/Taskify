@@ -20,7 +20,7 @@ angular.module('starter.controllers', ['firebase'])
     ref: ref.child('info'),
     icon: 'icon ion-ios7-search'},
   { title: 'Image Filtering',
-    id: 'filtering',
+    id: 'image-filter',
     tasks: 13,
     ref: ref.child('filtering'),
     icon: 'icon ion-ios7-settings'},
@@ -68,6 +68,11 @@ angular.module('starter.controllers', ['firebase'])
   $scope.openGoogle = function($scope){
     window.open('http://google.com', '_blank');
   };
+})
+
+.controller('FilterCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
+  popupModal($scope, $ionicModal);
 })
 
 .controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {

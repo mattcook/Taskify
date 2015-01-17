@@ -70,6 +70,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     }
   })
 
+  .state('app.filtering', {
+    url: "/type/image-filter",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/filtering.html",
+        controller: 'FilterCtrl'
+      }
+    }
+  })
+
   .state('app.emotion', {
     url: "/type/emotion-sentiment",
     views: {

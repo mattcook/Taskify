@@ -73,7 +73,6 @@ angular.module('starter.controllers', ['firebase'])
 .controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
   popupModal($scope, $ionicModal);
->>>>>>> a6214e3effe9b9d42e1fd9b659cae7bf00a9b4d0
 });
 
 var popupModal = function($scope, $ionicModal){

@@ -7016,4 +7016,8 @@ a.button {
   transition-duration: 0s; }
 
 .header-logo {
-  margin-top: 2px; }
+  margin-top: 8px; }
+
+.small-italic {
+  font-style: italic;
+  font-size: 14px; }

@@ -6,3 +6,4 @@ platforms/
 plugins/
 
 www/js/main.*
+www/css/ionic.app.*

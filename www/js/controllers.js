@@ -15,7 +15,7 @@ angular.module('starter.controllers', ['firebase'])
     ref: ref.child('categorization'),
     icon: 'icon ion-ios7-filing-outline'},
   { title: 'Information Search',
-    id: 'info',
+    id: 'info-search',
     tasks: 119,
     ref: ref.child('info'),
     icon: 'icon ion-ios7-search'},
@@ -52,7 +52,7 @@ angular.module('starter.controllers', ['firebase'])
 
 .controller('LoginCtrl', function($scope, $location, $stateParams) {
   $scope.doLogin = function() {
-    $location.path("app/categories")
+    $location.path("app/types")
   }
 })
 

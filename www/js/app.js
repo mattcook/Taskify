@@ -60,16 +60,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     }
   })
 
-  .state('app.single', {
-    url: "/type/:typeId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/type.html",
-        controller: 'TypeCtrl'
-      }
-    }
-  })
-
   .state('app.info-search', {
     url: "/info-search",
     views: {

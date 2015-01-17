@@ -4,10 +4,10 @@
   </ion-nav-title>
   <ion-content>
     <ion-list>
-      <a class="item" href="#/app/{{category.id}}" ng-repeat="category in categories">
-        <div class="item-icon-left"><i class={{category.icon}}></i>
-          <h2>{{category.title}}</h2>
-          <span class="small-italic">{{category.tasks}} Tasks</span>
+      <a class="item" href="#/app/type/{{type.id}}" ng-repeat="type in types">
+        <div class="item-icon-left"><i class={{type.icon}}></i>
+          <h2>{{type.title}}</h2>
+          <span class="small-italic">{{type.sync.length}} Tasks</span>
         </div>
         <div class="item-icon-right"><i class="icon ion-ios7-arrow-right"></i></div>
       </a>

@@ -40,12 +40,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     controller: 'AppCtrl'
   })
 
-  .state('app.categories', {
-    url: "/categories",
+  .state('app.types', {
+    url: "/types",
     views: {
       'menuContent': {
-        templateUrl: "templates/categories.html",
-        controller: 'CategoriesCtrl'
+        templateUrl: "templates/types.html",
+        controller: 'TypesCtrl'
       }
     }
   })
@@ -56,6 +56,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
       'menuContent': {
         templateUrl: "templates/categories/categorization.html",
         controller: 'CategorizationCtrl'
+      }
+    }
+  })
+
+  .state('app.single', {
+    url: "/type/:typeId",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/type.html",
+        controller: 'TypeCtrl'
       }
     }
   })

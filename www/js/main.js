@@ -60,6 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
       }
     }
   })
+
   .state('app.info-search', {
     url: "/info-search",
     views: {
@@ -69,6 +70,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
       }
     }
   });
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 }]);
@@ -76,7 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
 },{"angularfire":"/Users/Shub/MobileTurk/node_modules/angularfire/dist/angularfire.js","firebase":"/Users/Shub/MobileTurk/node_modules/firebase/lib/firebase-web.js"}],"./www/js/controllers.js":[function(require,module,exports){
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', ["$scope", "$ionicModal", "$timeout", function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', ["$scope", "$timeout", function($scope, $timeout) {
   // Perform the login action when the user submits the login form
 
 }])
@@ -98,13 +101,37 @@ angular.module('starter.controllers', [])
   }
 }])
 
-.controller('CategorizationCtrl', ["$scope", "$stateParams", function($scope, $stateParams) {
+.controller('CategorizationCtrl', ["$scope", "$stateParams", "$ionicModal", function($scope, $stateParams, $ionicModal) {
   $scope.pid = 1
+  $ionicModal.fromTemplateUrl('help-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
 }])
 
 .controller('InfoSearchCtrl', ["$scope", "$stateParams", function($scope, $stateParams) {
   $scope.pid = 2
-}]);
+}])
 
 },{}],"/Users/Shub/MobileTurk/node_modules/angularfire/dist/angularfire.js":[function(require,module,exports){
 /*!

@@ -88,8 +88,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
         controller: 'EmotionCtrl'
       }
     }
-  });
+  })
 
+  .state('app.tagging', {
+    url: "/type/tagging",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/tagging.html",
+        controller: 'TaggingCtrl'
+      }
+    }
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

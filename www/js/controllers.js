@@ -25,8 +25,8 @@ angular.module('starter.controllers', ['firebase'])
     ref: ref.child('filtering'),
     icon: 'icon ion-ios7-settings'},
   { title: 'Emotion Rating',
-    id: 4,
-    tasks: 'emotion',
+    id: 'emotion-sentiment',
+    tasks: 4,
     ref: ref.child('emotion'),
     icon: 'icon ion-ios7-star-outline'},
   { title: 'Image Tagging',
@@ -68,7 +68,11 @@ angular.module('starter.controllers', ['firebase'])
   $scope.openGoogle = function($scope){
     window.open('http://google.com', '_blank');
   };
+})
 
+.controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
+  popupModal($scope, $ionicModal);
 });
 
 

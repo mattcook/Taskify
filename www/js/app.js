@@ -51,21 +51,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
   })
 
   .state('app.categorization', {
-    url: "/image-categorization",
+    url: "/type/image-categorization",
     views: {
       'menuContent': {
-        templateUrl: "templates/categories/categorization.html",
+        templateUrl: "templates/types/categorization.html",
         controller: 'CategorizationCtrl'
       }
     }
   })
 
   .state('app.info-search', {
-    url: "/info-search",
+    url: "/type/info-search",
     views: {
       'menuContent': {
-        templateUrl: "templates/categories/info_search.html",
+        templateUrl: "templates/types/info_search.html",
         controller: 'InfoSearchCtrl'
+      }
+    }
+  })
+
+  .state('app.emotion', {
+    url: "/type/emotion-sentiment",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/emotion.html",
+        controller: 'EmotionCtrl'
       }
     }
   });

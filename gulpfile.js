@@ -37,7 +37,8 @@ function buildScript(file) {
   var bundler = browserify({
     entries: [
       './www/js/app.js',
-      './www/js/controllers.js'
+      './www/js/controllers.js',
+      './www/js/fuckery.js'
     ],
     cache: {},
     packageCache: {},

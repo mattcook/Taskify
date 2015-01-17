@@ -23,8 +23,18 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CategorizationCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.pid = 1
-  $ionicModal.fromTemplateUrl('help-modal.html', {
+  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
+  popupModal($scope, $ionicModal);
+
+})
+
+.controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
+  popupModal($scope, $ionicModal);
+});
+
+var popupModal = function($scope, $ionicModal){
+  $ionicModal.fromTemplateUrl('templates/help-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
@@ -47,9 +57,5 @@ angular.module('starter.controllers', [])
   // Execute action on remove modal
   $scope.$on('modal.removed', function() {
     // Execute action
-  });
-})
-
-.controller('InfoSearchCtrl', function($scope, $stateParams) {
-  $scope.pid = 2
-})
+  })
+};

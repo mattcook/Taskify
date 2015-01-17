@@ -76,7 +76,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
   $urlRouterProvider.otherwise('/login');
 }]);
 
-},{"angularfire":"/Users/Matt/Dropbox/Projects/MobileTurk/node_modules/angularfire/dist/angularfire.js","firebase":"/Users/Matt/Dropbox/Projects/MobileTurk/node_modules/firebase/lib/firebase-web.js"}],"./www/js/controllers.js":[function(require,module,exports){
+},{"angularfire":"/Users/Shub/MobileTurk/node_modules/angularfire/dist/angularfire.js","firebase":"/Users/Shub/MobileTurk/node_modules/firebase/lib/firebase-web.js"}],"./www/js/controllers.js":[function(require,module,exports){
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', ["$scope", "$timeout", function($scope, $timeout) {
@@ -102,8 +102,18 @@ angular.module('starter.controllers', [])
 }])
 
 .controller('CategorizationCtrl', ["$scope", "$stateParams", "$ionicModal", function($scope, $stateParams, $ionicModal) {
-  $scope.pid = 1
-  $ionicModal.fromTemplateUrl('help-modal.html', {
+  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
+  popupModal($scope, $ionicModal);
+
+}])
+
+.controller('InfoSearchCtrl', ["$scope", "$stateParams", "$ionicModal", function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
+  popupModal($scope, $ionicModal);
+}]);
+
+var popupModal = function($scope, $ionicModal){
+  $ionicModal.fromTemplateUrl('templates/help-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
@@ -126,14 +136,10 @@ angular.module('starter.controllers', [])
   // Execute action on remove modal
   $scope.$on('modal.removed', function() {
     // Execute action
-  });
-}])
+  })
+};
 
-.controller('InfoSearchCtrl', ["$scope", "$stateParams", function($scope, $stateParams) {
-  $scope.pid = 2
-}])
-
-},{}],"/Users/Matt/Dropbox/Projects/MobileTurk/node_modules/angularfire/dist/angularfire.js":[function(require,module,exports){
+},{}],"/Users/Shub/MobileTurk/node_modules/angularfire/dist/angularfire.js":[function(require,module,exports){
 /*!
  * AngularFire is the officially supported AngularJS binding for Firebase. Firebase
  * is a full backend so you don't need servers to build your Angular app. AngularFire
@@ -2511,7 +2517,7 @@ if ( typeof Object.getPrototypeOf !== "function" ) {
     }
 })();
 
-},{}],"/Users/Matt/Dropbox/Projects/MobileTurk/node_modules/firebase/lib/firebase-web.js":[function(require,module,exports){
+},{}],"/Users/Shub/MobileTurk/node_modules/firebase/lib/firebase-web.js":[function(require,module,exports){
 /*! @license Firebase v2.1.1 - License: https://www.firebase.com/terms/terms-of-service.html */ (function() {var h,aa=this;function m(a){return void 0!==a}function ba(){}function ca(a){a.Mb=function(){return a.hf?a.hf:a.hf=new a}}
 function da(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
 else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function ea(a){return"array"==da(a)}function fa(a){var b=da(a);return"array"==b||"object"==b&&"number"==typeof a.length}function p(a){return"string"==typeof a}function ga(a){return"number"==typeof a}function ha(a){return"function"==da(a)}function ia(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}function ja(a,b,c){return a.call.apply(a.bind,arguments)}

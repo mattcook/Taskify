@@ -1,0 +1,23 @@
+<ion-modal-view>
+<ion-header-bar>
+<h1 class="title">Instructions</h1>
+<button class="button button-clear button-dark" ng-click="closeModal()">
+<i class="icon ion-ios7-close-outline"></i>
+</button>
+</ion-header-bar>
+<ion-content>
+<div class="card">
+<div class="item item-text-wrap">
+{{modal_text}}
+</div>
+</div>
+<div class="list list-inset">
+<button class="button button-full button-light" ng-click="closeModal()">
+Close Instructions
+</button>
+<button class="button button-full button-assertive" ng-click="closeModal()">
+Skip Task
+</button>
+</div>
+</ion-content>
+</ion-modal-view>

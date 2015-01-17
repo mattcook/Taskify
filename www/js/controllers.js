@@ -7,21 +7,25 @@ angular.module('starter.controllers', [])
 
 .controller('CategoriesCtrl', function($scope) {
   $scope.categories = [
-  { title: 'Image Categorization', id: 1 , tasks: 321, icon: 'icon ion-ios7-filing-outline'},
-  { title: 'Information Search', id: 2, tasks: 119, icon: 'icon ion-ios7-search'},
-  { title: 'Image Filtering', id: 3, tasks: 13, icon: 'icon ion-ios7-settings'},
-  { title: 'Emotion Rating', id: 4, tasks: 78, icon: 'icon ion-ios7-star-outline'},
-  { title: 'Image Tagging', id: 5, tasks: 62, icon: 'icon ion-ios7-pricetag-outline'},
-  { title: 'Transcription', id: 6, tasks: 193, icon: 'icon ion-ios7-compose-outline'}
-  ];
-})
-
-.controller('CategoryCtrl', function($scope, $stateParams) {
-  $scope.pid = $stateParams['catId']
+      { title: 'Image Categorization', id: 'image-categorization' , tasks: 321, icon: 'icon ion-ios7-filing-outline'},
+      { title: 'Information Search', id: 'info-search', tasks: 119, icon: 'icon ion-ios7-search'},
+      { title: 'Image Filtering', id: 'filtering', tasks: 13, icon: 'icon ion-ios7-settings'},
+      { title: 'Emotion Rating', id: 'emotion-rating', tasks: 78, icon: 'icon ion-ios7-star-outline'},
+      { title: 'Image Tagging', id: 'image-tagging', tasks: 62, icon: 'icon ion-ios7-pricetag-outline'},
+      { title: 'Transcription', id: 'transcription', tasks: 193, icon: 'icon ion-ios7-compose-outline'}
+      ];
 })
 
 .controller('LoginCtrl', function($scope, $location, $stateParams) {
   $scope.doLogin = function() {
     $location.path("app/categories")
-  };
+  }
+})
+
+.controller('CategorizationCtrl', function($scope, $stateParams) {
+  $scope.pid = 1
+})
+
+.controller('InfoSearchCtrl', function($scope, $stateParams) {
+  $scope.pid = 2
 });

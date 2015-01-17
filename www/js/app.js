@@ -34,25 +34,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     controller: 'AppCtrl'
   })
 
-    .state('app.categories', {
-      url: "/categories",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/categories.html",
-          controller: 'CategoriesCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: "/category/:catId",
+  .state('app.types', {
+    url: "/types",
     views: {
       'menuContent': {
-        templateUrl: "templates/category.html",
-        controller: 'CategoryCtrl'
+        templateUrl: "templates/types.html",
+        controller: 'TypesCtrl'
+      }
+    }
+  })
+
+  .state('app.single', {
+    url: "/type/:typeId",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/type.html",
+        controller: 'TypeCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/categories');
+  $urlRouterProvider.otherwise('/app/types');
 });

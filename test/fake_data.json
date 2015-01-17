@@ -61,6 +61,11 @@
           }
         }
       }
-    }
+    },
+    "info": "placeholder",
+    "filtering": "placeholder",
+    "emotion": "placeholder",
+    "tagging": "placeholder",
+    "transcription": "placeholder"
   }
 }

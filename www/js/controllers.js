@@ -1,11 +1,12 @@
 angular.module('starter.controllers', ['firebase'])
 
-.controller('AppCtrl', function($scope, $timeout) {
+.controller('AppCtrl', ['currentAuth', function($scope, $timeout) {
+  
   // Perform the login action when the user submits the login form
+}])
 
-})
-
-.controller('TypesCtrl', function($scope, $firebase) {
+.controller('TypesCtrl', ['$scope', '$firebase', function($scope, $firebase) {
+  console.log("TYPESS")
   'use strict';
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types');
   $scope.types = [
@@ -44,28 +45,46 @@ angular.module('starter.controllers', ['firebase'])
   for(var i=0; i<$scope.types.length; i++) {
     $scope.types[i].sync = $firebase($scope.types[i].ref).$asArray();
   }
-})
+}])
 
-.controller('TypeCtrl', function($scope, $stateParams) {
-  $scope.pid = $stateParams['typeId'];
-})
+.controller('LoginCtrl', ['currentAuth', 'Auth', '$scope', '$state', function(authStatus,  Auth, $scope, $state) {
+  var loginRedirect = function () {
+    $state.go('app.types');
+  };
 
-.controller('LoginCtrl', function($scope, $location, $stateParams) {
-  $scope.doLogin = function() {
-    $location.path("app/types")
+  if (typeof authStatus !== undefined && authStatus !== null) {
+    console.log(authStatus);
+    loginRedirect();
+    return;
   }
-})
 
-.controller('CategorizationCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.loginData = {};
+  $scope.doLogin = function() {
+    Auth.$authWithPassword($scope.loginData).then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+      loginRedirect();
+    }).catch(function(error) {
+      alert(error.message);
+    });
+  }
+}])
+
+.controller('CategorizationCtrl', ['currentAuth', function($scope, $stateParams, $ionicModal, $firebase) {
+  'use strict';
+
   $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
   popupModal($scope, $ionicModal);
 
-})
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/categorization');
 
-.controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.categorization = $firebase(ref).$asArray();
+
+}])
+
+.controller('InfoSearchCtrl', ['currentAuth', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
   popupModal($scope, $ionicModal);
-});
+}]);
 
 var popupModal = function($scope, $ionicModal){
   $ionicModal.fromTemplateUrl('templates/help-modal.html', {

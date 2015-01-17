@@ -70,12 +70,12 @@ angular.module('starter.controllers', [])
 
 .controller('CategoriesCtrl', ["$scope", function($scope) {
   $scope.categories = [
-    { title: 'Image Categorization', id: 1 },
-    { title: 'Information Search', id: 2 },
-    { title: 'Image Filtering', id: 3 },
-    { title: 'Emotion Rating', id: 4 },
-    { title: 'Image Tagging', id: 5 },
-    { title: 'Transcription', id: 6 }
+  { title: 'Image Categorization', id: 1 , tasks: 321, icon: 'icon ion-ios7-filing-outline'},
+  { title: 'Information Search', id: 2, tasks: 119, icon: 'icon ion-ios7-search'},
+  { title: 'Image Filtering', id: 3, tasks: 13, icon: 'icon ion-ios7-settings'},
+  { title: 'Emotion Rating', id: 4, tasks: 78, icon: 'icon ion-ios7-star-outline'},
+  { title: 'Image Tagging', id: 5, tasks: 62, icon: 'icon ion-ios7-pricetag-outline'},
+  { title: 'Transcription', id: 6, tasks: 193, icon: 'icon ion-ios7-compose-outline'}
   ];
 }])
 

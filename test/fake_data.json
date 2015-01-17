@@ -17,18 +17,6 @@
           "1": "Lorem",
           "2": "Ipsum",
           "3": "Sit"
-        },
-        "data": {
-          "id-c1": {
-            "title": "A Rob Ford",
-            "directive": "Find the angry face",
-            "image": "http://i.imgur.com/OFflMes.jpg"
-          },
-          "id-c2": {
-            "title": "A cat photos",
-            "directive": null,
-            "image": "https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg"
-          }
         }
       },
       "id-a2": {

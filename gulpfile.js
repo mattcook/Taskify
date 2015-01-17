@@ -59,7 +59,8 @@ function buildScript(file) {
     return stream.on('error', handleErrors)
       .pipe(source(file))
       .pipe(gulp.dest('./www/js'))
-      .pipe(browserSync.reload({ stream: true, once: true }));
+      .pipe(browserSync.reload({ stream: true, once: true }))
+      .pipe(notify("Compiled bundle... reloading"));
   }
   return rebundle();
 }
@@ -80,7 +81,6 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
-  
 });
 
 gulp.task('install', ['git-check'], function() {

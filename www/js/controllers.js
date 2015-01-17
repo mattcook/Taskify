@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $timeout) {
   // Perform the login action when the user submits the login form
 
 })
@@ -22,10 +22,34 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('CategorizationCtrl', function($scope, $stateParams) {
+.controller('CategorizationCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.pid = 1
+  $ionicModal.fromTemplateUrl('help-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
 })
 
 .controller('InfoSearchCtrl', function($scope, $stateParams) {
   $scope.pid = 2
-});
+})

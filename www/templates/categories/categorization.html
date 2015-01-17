@@ -1,5 +1,57 @@
 <ion-view view-title="Image Categorization">
   <ion-content>
-    <h1>HALOLOLOOLOOOO</h1>
+
+    <div class="list card">
+
+      <div class="item item-icon-right">
+        <h2>Choose the best category</h2>
+        <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
+      </div>
+
+      <div class="item item-image">
+          <img width="100%" style="max-width:390px;" src="https://s3.amazonaws.com/bhtemplates/room2.jpg"/>
+      </div>
+
+      <a class="item" href="#">
+        Kitchen
+      </a>
+      <a class="item" href="#">
+        Living
+      </a>
+      <a class="item" href="#">
+        Bath
+      </a>
+      <a class="item" href="#">
+        Bed
+      </a>
+
+    </div>
+
   </ion-content>
 </ion-view>
+
+<script id="help-modal.html" type="text/ng-template">
+  <ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Instructions</h1>
+    <button class="button button-clear button-dark" ng-click="closeModal()">
+      <i class="icon ion-ios7-close-outline"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+  <div class="card">
+    <div class="item item-text-wrap">
+      Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task.
+    </div>
+  </div>
+  <div class="list list-inset">
+    <button class="button button-full button-light">
+    Close Instructions
+    </button>
+    <button class="button button-full button-assertive">
+    Skip Task
+    </button>
+  </div>
+  </ion-content>
+  </ion-modal-view>
+</script>

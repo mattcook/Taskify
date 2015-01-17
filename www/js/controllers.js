@@ -21,13 +21,13 @@ angular.module('starter.controllers', ['firebase'])
     ref: ref.child('info'),
     icon: 'icon ion-ios7-search'},
   { title: 'Image Filtering',
-    id: 'filtering',
+    id: 'image-filter',
     tasks: 13,
     ref: ref.child('filtering'),
     icon: 'icon ion-ios7-settings'},
   { title: 'Emotion Rating',
-    id: 4,
-    tasks: 'emotion',
+    id: 'emotion-sentiment',
+    tasks: 4,
     ref: ref.child('emotion'),
     icon: 'icon ion-ios7-star-outline'},
   { title: 'Image Tagging',
@@ -81,10 +81,28 @@ angular.module('starter.controllers', ['firebase'])
 
 }])
 
-.controller('InfoSearchCtrl', ['currentAuth', function($scope, $stateParams, $ionicModal) {
+.controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
+  popupModal($scope, $ionicModal);
+  $scope.openGoogle = function($scope){
+  window.open('http://google.com', '_blank', 'location=yes');
+  };
+})
+
+.controller('FilterCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
   popupModal($scope, $ionicModal);
-}]);
+})
+
+.controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
+  popupModal($scope, $ionicModal);
+})
+
+.controller('TaggingCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
+  popupModal($scope, $ionicModal);
+});
 
 var popupModal = function($scope, $ionicModal){
   $ionicModal.fromTemplateUrl('templates/help-modal.html', {

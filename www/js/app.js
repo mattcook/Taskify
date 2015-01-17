@@ -75,10 +75,10 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services','fi
   })
 
   .state('app.categorization', {
-    url: "/image-categorization",
+    url: "/type/image-categorization",
     views: {
       'menuContent': {
-        templateUrl: "templates/categories/categorization.html",
+        templateUrl: "templates/types/categorization.html",
         controller: 'CategorizationCtrl'
       }
     },
@@ -91,10 +91,10 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services','fi
   })
 
   .state('app.info-search', {
-    url: "/info-search",
+    url: "/type/info-search",
     views: {
       'menuContent': {
-        templateUrl: "templates/categories/info_search.html",
+        templateUrl: "templates/types/info_search.html",
         controller: 'InfoSearchCtrl'
       }
     },
@@ -103,7 +103,36 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services','fi
         return Auth.$requireAuth();
       }]
     }
+  })
 
+  .state('app.filtering', {
+    url: "/type/image-filter",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/filtering.html",
+        controller: 'FilterCtrl'
+      }
+    }
+  })
+
+  .state('app.emotion', {
+    url: "/type/emotion-sentiment",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/emotion.html",
+        controller: 'EmotionCtrl'
+      }
+    }
+  })
+
+  .state('app.tagging', {
+    url: "/type/tagging",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/tagging.html",
+        controller: 'TaggingCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('login');

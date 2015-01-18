@@ -193,9 +193,129 @@
           "4": "Milk"
         }
       }
-
     },
-    "info": "placeholder",
+    "info": {
+      "id-b1": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 3166911234,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.07,
+        "currency": "USD",
+        "provided": {
+          "Restaurant Name": "Angel's Diner",
+          "Address": "310 Strander Blvd., Tukwila, WA, 98188",
+          "Phone Number": "(206)241-4899"
+        },
+        "required": "Website"
+      },
+      "id-b2": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 3256919482,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.06,
+        "currency": "USD",
+        "provided": {
+          "Restaurant Name": "Fireside Deli & Family Restaurant",
+          "Address": "800 Ottawa Street South, Kitchener, ON, N2E 3M6",
+          "Website": "http://www.fireside-deli.com/"
+        },
+        "required": "Phone Number"
+      },
+      "id-b3": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 2989711272,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.11,
+        "currency": "USD",
+        "provided": {
+          "Store Name": "Best Buy Toronto",
+          "Address": "65 Dundas St. West, Toronto, ON, M5G 2C3",
+          "Website": "https://www-ssl.bestbuy.ca/en-CA/stores/store-locator.aspx?StoreId=977"
+        },
+        "required": "Phone Number"
+      },
+      "id-b4": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 3397620270,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.14,
+        "currency": "USD",
+        "provided": {
+          "Organization Name": "Pathways to Education Canada",
+          "Phone Number": "(416)646-0123",
+          "Website": "http://pathwaystoeducation.ca/en"
+        },
+        "required": "CEO Contact"
+      },
+      "id-b5": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 3000711912,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.09,
+        "currency": "USD",
+        "provided": {
+          "School Name": "Wilfrid Laurier University",
+          "Address": "75 University Avenue West, Waterloo, ON, N2L 3C5",
+          "Phone Number": "(519) 884-0710"
+        },
+        "required": "Website"
+      },
+      "id-b6": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 3810761978,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.27,
+        "currency": "USD",
+        "provided": {
+          "Name": "Shub Sengupta",
+          "City": "Kitchener",
+          "Twitter": "https://twitter.com/shubsengupta"
+        },
+        "required": "Phone Number"
+      },
+      "id-b7": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 3963777109,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.34,
+        "currency": "USD",
+        "provided": {
+          "Article Title": "New Snowden documents show that the NSA and its allies are laughing at the rest of the world.",
+          "Organization": "The Verge",
+          "Released Date": "January 17, 2015"
+        },
+        "required": "Author Name"
+      },
+      "id-b8": {
+        "status": "open",
+        "type": "info",
+        "createdAt": 2432128288,
+        "title": "Please Provide",
+        "description": "Using the information provided, complete the missing field.",
+        "price": 0.19,
+        "currency": "USD",
+        "provided": {
+          "Song Name": "Never Gonna Give You Up",
+          "Album Name": "Whenever You Need Somebody",
+          "Album Release Date": "1987"
+        },
+        "Required": "Song Alt Name"
+      }
+    },
     "filtering": "placeholder",
     "emotion": "placeholder",
     "tagging": "placeholder",

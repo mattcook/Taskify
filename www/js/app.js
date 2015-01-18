@@ -146,7 +146,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'TaggingCtrl'
       }
     }
-  });
+  })
+
+  .state('app.transcription', {
+    url: "/type/transcription",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/types/transcription.html",
+        controller: 'TranscribeCtrl'
+      }
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('login');
 });

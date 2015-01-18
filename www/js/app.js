@@ -9,8 +9,7 @@ firebase = require('firebase');
 angularfire = require('angularfire');
 auth = require('../factories/auth');
 
-angular.module('starter',
-               ['ionic', 'starter.controllers','starter.services','firebase'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase','ionic.contrib.ui.tinderCards'])
 
 .run(['$ionicPlatform', '$rootScope', '$state','Auth',
      function($ionicPlatform, $rootScope, $state) {
@@ -27,10 +26,22 @@ angular.module('starter',
     }
   });
   $rootScope.$on('$stateChangeError', function() {
-    console.log
     if (arguments[4] === 'AUTH_REQUIRED') $state.go('login');
   });
 }])
+
+.directive('noScroll', function() {
+
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+
+      $element.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
+})
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -55,7 +66,6 @@ angular.module('starter',
     controller: 'AppCtrl',
     resolve: {
       'currentAuth': ['Auth', function(Auth) {
-        console.log("REQUIRING AUTH IN APP")
         return Auth.$requireAuth();
       }]
     }
@@ -113,7 +123,7 @@ angular.module('starter',
     views: {
       'menuContent': {
         templateUrl: "templates/types/filtering.html",
-        controller: 'FilterCtrl'
+        controller: 'CardsCtrl'
       }
     }
   })

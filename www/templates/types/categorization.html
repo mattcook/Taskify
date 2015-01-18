@@ -12,7 +12,7 @@
         <img width="100%" style="max-width:390px;" ng-src="{{categorization.val.image}}"/>
       </div>
       <ion-list>
-      <label class="item item-radio" ng-repeat="cat in categorization.val.categories">
+      <label class="item item-radio" ng-repeat="cat in categorization.val.categories" ng-hide='{{cat == undefined}}'>
           <input type="radio" name="group">
           <div class="item-content">
             {{cat}}

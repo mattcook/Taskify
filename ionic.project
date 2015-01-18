@@ -1,6 +1,6 @@
 {
-  "name": "MobileTurk",
-  "app_id": "",
+  "name": "Taskify",
+  "app_id": "taskify",
   "gulpStartupTasks": [
     "sass",
     "browserify",

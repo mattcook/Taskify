@@ -157,7 +157,6 @@ angular.module('starter.controllers', ['firebase'])
       var lastTime = snap.val() ? snap.val() : 0;
       var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
       $scope.categorization = $firebase(q).$asObject();
-
       // Load the last task from firebase
       $scope.categorization.$loaded()
       .then(function(data) {
@@ -167,6 +166,11 @@ angular.module('starter.controllers', ['firebase'])
             key = i;
             break;
           }
+        }
+        if (key === null) {
+          alert('There aren\'t anymore tasks available in this category right now');
+          $state.go('app.types');
+          return false;
         }
         // Make the value returned accesible
         $scope.categorization.val = $scope.categorization[key];

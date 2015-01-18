@@ -316,9 +316,57 @@
         "Required": "Song Alt Name"
       }
     },
-    "filtering": "placeholder",
+      "filtering": {
+        "id-c1": {
+          "status": "open",
+          "type": "info",
+          "createdAt": 3251214204,
+          "title": "Is This Image Family Appropriate?",
+          "description": "Swipe RIGHT for YES, and LEFT for NO.",
+          "price": 0.03,
+          "currency": "USD",
+          "image": "https://pbs.twimg.com/profile_images/3406750764/53cb4678547221f4c387242c94b7d86a.jpeg"
+        },
+        "filtering": {
+          "id-c2": {
+            "status": "open",
+            "type": "info",
+            "createdAt": 3151414204,
+            "title": "Is This Image Family Appropriate?",
+            "description": "Swipe RIGHT for YES, and LEFT for NO.",
+            "price": 0.05,
+            "currency": "USD",
+            "image": "https://pbs.twimg.com/profile_images/3406750764/53cb4678547221f4c387242c94b7d86a.jpeg"
+          },
+          "filtering": {
+            "id-c3": {
+              "status": "open",
+              "type": "info",
+              "createdAt": 3227317201,
+              "title": "Is This Image Family Appropriate?",
+              "description": "Swipe RIGHT for YES, and LEFT for NO.",
+              "price": 0.03,
+              "currency": "USD",
+              "image": "https://pbs.twimg.com/profile_images/555624234068627456/0gTPCyOc.jpeg"
+            },
+            "filtering": {
+              "id-c4": {
+                "status": "open",
+                "type": "info",
+                "createdAt": 3101144209,
+                "title": "Is This Image Family Appropriate?",
+                "description": "Swipe RIGHT for YES, and LEFT for NO.",
+                "price": 0.06,
+                "currency": "USD",
+                "image": "https://pbs.twimg.com/profile_images/554783989492228097/7n986fvF.jpeg"
+              }
+            }
+          },
+
     "emotion": "placeholder",
     "tagging": "placeholder",
     "transcription": "placeholder"
+    }
   }
+}
 }

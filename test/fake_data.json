@@ -32,7 +32,7 @@
           "3": "Backyard",
           "4": "Dining"
         }
-      }
+      },
       "id-a3": {
         "status": "open",
         "type": "categorization",
@@ -48,7 +48,7 @@
           "3": "Cat",
           "4": "Bat"
         }
-      }
+      },
       "id-a4": {
         "status": "open",
         "type": "categorization",
@@ -64,7 +64,7 @@
           "3": "Buffet",
           "4": "Dinner"
         }
-      }
+      },
       "id-a5": {
         "status": "open",
         "type": "categorization",
@@ -80,7 +80,7 @@
           "3": "Tulip",
           "4": "Rose"
         }
-      }
+      },
       "id-a6": {
         "status": "open",
         "type": "categorization",
@@ -96,7 +96,7 @@
           "3": "Rose",
           "4": "Tulip"
         }
-      }
+      },
       "id-a7": {
         "status": "open",
         "type": "categorization",
@@ -112,7 +112,7 @@
           "3": "Shopping Centre",
           "4": "Gym"
         }
-      }
+      },
       "id-a8": {
         "status": "open",
         "type": "categorization",
@@ -128,7 +128,7 @@
           "3": "Water",
           "4": "Milk"
         }
-      }
+      },
       "id-a9": {
         "status": "open",
         "type": "categorization",
@@ -144,7 +144,7 @@
           "3": "Fall",
           "4": "Winter"
         }
-      }
+      },
       "id-a10": {
         "status": "open",
         "type": "categorization",
@@ -160,7 +160,7 @@
           "3": "Luxury Car",
           "4": "Economy Car"
         }
-      }
+      },
       "id-a11": {
         "status": "open",
         "type": "categorization",
@@ -176,7 +176,7 @@
           "3": "Luxury Car",
           "4": "Economy Car"
         }
-      }
+      },
       "id-a12": {
         "status": "open",
         "type": "categorization",

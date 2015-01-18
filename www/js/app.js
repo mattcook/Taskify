@@ -8,7 +8,7 @@
 firebase = require('firebase');
 angularfire = require('angularfire');
 
-angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
+angular.module('starter', ['ionic', 'starter.controllers', 'firebase','ionic.contrib.ui.tinderCards'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,6 +22,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
       StatusBar.styleDefault();
     }
   });
+})
+
+.directive('noScroll', function() {
+
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+
+      $element.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -75,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
     views: {
       'menuContent': {
         templateUrl: "templates/types/filtering.html",
-        controller: 'FilterCtrl'
+        controller: 'CardsCtrl'
       }
     }
   })

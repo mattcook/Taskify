@@ -2,7 +2,36 @@ angular.module('starter.controllers', ['firebase'])
 
 .controller('AppCtrl', function($scope, $timeout) {
   // Perform the login action when the user submits the login form
+})
 
+.controller('CardsCtrl', function($scope,$stateParams, $ionicModal, TDCardDelegate) {
+  console.log('CARDS CTRL');
+  var cardTypes = [
+    { image: 'https://pbs.twimg.com/profile_images/546942133496995840/k7JAxvgq.jpeg' },
+    { image: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png' },
+    { image: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg' },
+    ];
+
+  $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+  };
+
+  $scope.addCard = function() {
+    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+    newCard.id = Math.random();
+    $scope.cards.push(angular.extend({}, newCard));
+  }
+})
+
+.controller('CardCtrl', function($scope, TDCardDelegate) {
+  $scope.cardSwipedLeft = function(index) {
+    $scope.addCard();
+  };
+  $scope.cardSwipedRight = function(index) {
+    $scope.addCard();
+  };
 })
 
 .controller('TypesCtrl', function($scope, $firebase) {
@@ -68,11 +97,6 @@ angular.module('starter.controllers', ['firebase'])
   $scope.openGoogle = function($scope){
   window.open('http://google.com', '_blank', 'location=yes');
   };
-})
-
-.controller('FilterCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
-  popupModal($scope, $ionicModal);
 })
 
 .controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {

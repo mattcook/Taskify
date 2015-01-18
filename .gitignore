@@ -7,3 +7,4 @@ plugins/
 
 www/js/main.*
 www/css/ionic.app.*
+www/js/lib/*

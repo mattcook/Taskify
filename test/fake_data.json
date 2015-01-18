@@ -313,7 +313,7 @@
           "Album Name": "Whenever You Need Somebody",
           "Album Release Date": "1987"
         },
-        "Required": "Song Alt Name"
+        "required": "Song Alt Name"
       }
     },
     "filtering": {
@@ -517,6 +517,77 @@
         "price": 0.06
       }
     },
-    "transcription": "placeholder"
+    "transcription": {
+      "id-f1": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 4116799234,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "http://edhayes3.files.wordpress.com/2011/05/ed-hayes-qr-code-business-card.jpg",
+        "price": 0.07,
+        "currency": "USD"
+      },
+      "id-f2": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 3996799231,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "https://energysavemd-home.com/images/site/rebates/address.jpg",
+        "price": 0.17,
+        "currency": "USD"
+      },
+      "id-f3": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 4007199234,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "http://i.dailymail.co.uk/i/pix/2013/04/24/article-2313956-19755C22000005DC-919_306x487.jpg",
+        "price": 0.10,
+        "currency": "USD"
+      },
+      "id-f4": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 4116799234,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "http://c0263062.cdn.cloudfiles.rackspacecloud.com/content/images/house-number-sign-closeup_5f3508478dbcceb3be83a6bd79841ab2.jpg",
+        "price": 0.07,
+        "currency": "USD"
+      },
+      "id-f5": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 4345799294,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "http://www.antigrain.com/research/font_rasterization/msword_text_rendering.png",
+        "price": 0.11,
+        "currency": "USD"
+      },
+      "id-f6": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 5116799234,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "http://pad2.whstatic.com/images/thumb/7/72/Properly-Highlight-a-Paper-Step-2.jpg/670px-Properly-Highlight-a-Paper-Step-2.jpg",
+        "price": 0.19,
+        "currency": "USD"
+      },
+      "id-f7": {
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 4116799999,
+        "title": "Transcribe Text From the Image",
+        "description": "Please transcribe the line of text from the image.",
+        "image": "https://echotsui.files.wordpress.com/2012/02/imag2363.jpg",
+        "price": 0.12,
+        "currency": "USD"
+      }
+    }
   }
 }

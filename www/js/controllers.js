@@ -81,26 +81,32 @@ angular.module('starter.controllers', ['firebase'])
             ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
               function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
   'use strict';
-  verifyAuth(auth, $scope, $state);
-
-  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
-
+  var uid = verifyAuth(auth, $scope, $state);
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types/categorization');
-  var q = ref.orderByChild('createdAt').limitToFirst(1);
 
-  $scope.categorization = $firebase(q).$asObject();
-  $scope.categorization.$loaded()
-  .then(function(data) {
-    var key = null
-    for (var i in data) {
-      if (i[0] !== '$' && i !== 'forEach') {
-        key = i;
-        break;
-      }
-    }
-    $scope.categorization.val = $scope.categorization[key];
-    popupModal($scope, $ionicModal);
-  });
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/categorization/last');
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val().createdAt : Number.MAX_VALUE;
+      var q = ref.orderByChild('createdAt').endAt(lastTime).limitToFirst(1);
+      $scope.categorization = $firebase(q).$asObject();
+      $scope.categorization.$loaded()
+      .then(function(data) {
+        console.log(data);
+        var key = null
+        for (var i in data) {
+          if (i[0] !== '$' && i !== 'forEach') {
+            key = i;
+            break;
+          }
+        }
+        $scope.categorization.val = $scope.categorization[key];
+        $scope.helpModalText = $scope.categorization.val.description;
+        popupModal($scope, $ionicModal);
+      });
+    });
+  }
 }])
 
 .controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
@@ -141,8 +147,7 @@ var verifyAuth = function(auth, $scope, $state) {
         $state.go('login');
       }
     });
-
-    return auth;
+    return auth.uid;
   } else {
     $state.go('login');
     return false;

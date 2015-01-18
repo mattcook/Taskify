@@ -126,6 +126,18 @@ angular.module('starter.controllers', ['firebase'])
           current = current ? current : 0;
           return current < snap.val().createdAt ? snap.val().createdAt : current;
         });
+
+        userRef.child('tasks/categorization/earned').transaction(function(current) {
+          current = current ? current : 0;
+          return current += snap.val().price;
+        });
+
+        userRef.child('tasks/categorization/completed').push(catRef.key());
+
+        userRef.child('totalEarned').transaction(function(current) {
+          current = current ? current : 0;
+          return current += snap.val().price;
+        })
       });
     };
 

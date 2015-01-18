@@ -188,7 +188,7 @@ function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
       var data = {};
       data[uid] = $scope.formData.response;
       catRef.child('responses').update(data);
-
+      $scope.formData = {};
       catRef.once('value', function(snap) {
         userLast.transaction(function(current) {
           current = current ? current : 0;

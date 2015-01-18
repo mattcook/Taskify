@@ -5,6 +5,8 @@ node_modules/
 platforms/
 plugins/
 
+*.log
+
 www/js/main.*
 www/css/ionic.app.*
 www/js/lib/.*

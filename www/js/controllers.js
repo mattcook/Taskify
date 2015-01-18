@@ -173,6 +173,11 @@ angular.module('starter.controllers', ['firebase'])
 .controller('TaggingCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
   popupModal($scope, $ionicModal);
+})
+
+.controller('TranscribeCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
+  popupModal($scope, $ionicModal);
 });
 
 var verifyAuth = function(auth, $scope, $state) {

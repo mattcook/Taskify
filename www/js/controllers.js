@@ -109,14 +109,34 @@ angular.module('starter.controllers', ['firebase'])
   'use strict';
   var uid = verifyAuth(auth, $scope, $state);
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types/categorization');
+  var catRef = null;
 
   if (uid) {
     var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
     var userLast = userRef.child('tasks/categorization/last');
+    $scope.formData = {};
+
+    $scope.submitCat = function() {
+      var data = {};
+      data[uid] = $scope.formData.category;
+      catRef.child('responses').update(data);
+
+      catRef.once('value', function(snap) {
+        userLast.transaction(function(current) {
+          current = current ? current : 0;
+          return current < snap.val().createdAt ? snap.val().createdAt : current;
+        });
+      });
+    };
+
+    // Get User Data to find last task completed/skipped
     userLast.on('value', function(snap) {
-      var lastTime = snap.val() ? snap.val().createdAt : Number.MAX_VALUE;
-      var q = ref.orderByChild('createdAt').endAt(lastTime).limitToFirst(1);
+      var lastTime = snap.val() ? snap.val() : 0;
+      console.log(lastTime);
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
       $scope.categorization = $firebase(q).$asObject();
+
+      // Load the last task from firebase
       $scope.categorization.$loaded()
       .then(function(data) {
         console.log(data);
@@ -127,12 +147,14 @@ angular.module('starter.controllers', ['firebase'])
             break;
           }
         }
+        // Make the value returned accesible
         $scope.categorization.val = $scope.categorization[key];
+        catRef = ref.child(key);
         $scope.helpModalText = $scope.categorization.val.description;
         popupModal($scope, $ionicModal);
       });
     });
-  }
+  };
 }])
 
 .controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {

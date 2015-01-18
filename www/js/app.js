@@ -9,11 +9,14 @@ firebase = require('firebase');
 angularfire = require('angularfire');
 auth = require('../factories/auth');
 
-angular.module('starter', ['ionic', 'starter.controllers','starter.services','firebase'])
+angular.module('starter',
+               ['ionic', 'starter.controllers','starter.services','firebase'])
 
-.run(['$ionicPlatform', '$rootScope', '$state','Auth', function($ionicPlatform, $rootScope, $state) {
+.run(['$ionicPlatform', '$rootScope', '$state','Auth',
+     function($ionicPlatform, $rootScope, $state) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // Hide the accessory bar by default
+    // (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);

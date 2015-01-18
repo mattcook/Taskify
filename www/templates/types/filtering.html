@@ -1,6 +1,6 @@
 <ion-view view-title="Image Filtering">
   <ion-content>
-    <div ng-controller="CardsCtrl">
+    <div>
       <div class='list list-inset'>
         <div class="item item-divider item-icon-right">
           Is the Image Family Appropriate?
@@ -11,8 +11,13 @@
         </div>
       </div>
       <td-cards>
-        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
-          <div class="image" ng-controller="CardCtrl">
+        <td-card ng-repeat="card in cards"
+                  on-destroy="cardDestroyed(card.$id)"
+                  on-swipe-left="cardSwipedLeft(card.$id)"
+                  on-swipe-right="cardSwipedRight(card.$id)"
+                  on-partial-swipe="cardPartialSwipe(amt)"
+                  class="card-{{$index}}">
+          <div class="image">
             <div class="no-text">NOPE</div>
             <img ng-src="{{card.image}}">
             <div class="yes-text">YES</div>

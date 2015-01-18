@@ -4,17 +4,60 @@ angular.module('starter.controllers', ['firebase'])
   // Perform the login action when the user submits the login form
 })
 
-.controller('CardsCtrl', function($scope,$stateParams, $ionicModal, TDCardDelegate) {
-  var cardTypes = [
-    { image: 'https://pbs.twimg.com/profile_images/546942133496995840/k7JAxvgq.jpeg' },
-    { image: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png' },
-    { image: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg' },
-    ];
+.controller('CardsCtrl',
+            ['currentAuth', '$scope', '$state',
+              'TDCardDelegate', '$ionicModal', '$firebase',
+              function(auth, $scope, $state,
+                       TDCardDelegate, $ionicModal, $firebase) {
+  'use strict';
+  var uid = verifyAuth(auth, $scope, $state);
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/filtering');
 
-  $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+  $scope.submitCard = function(response, id) {
+    console.log(arguments);
+    var data = {};
+    data[uid] = response;
+    ref.child(id + '/responses').update(data);
+
+    ref.child(id).once('value', function(snap) {
+      console.log(snap);
+      userLast.transaction(function(current) {
+        current = current ? current : 0;
+        return current < snap.val().createdAt ? snap.val().createdAt : current;
+      });
+
+      userRef.child('tasks/filtering/earned').transaction(function(current) {
+        current = current ? current : 0;
+        return current += snap.val().price;
+      });
+
+      userRef.child('tasks/filtering/completed').push(id);
+
+      userRef.child('totalEarned').transaction(function(current) {
+        current = current ? current : 0;
+        return current += snap.val().price;
+      })
+    })
+  };
+
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/filtering/last');
+
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val() : 0;
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(3);
+      $scope.cards = $firebase(q).$asArray();
+      // Load the last tasks from firebase
+      window.$scope = $scope;
+    })
+  };
 
   $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
+    console.log('DESTROYED');
+  };
+  $scope.cardPartialSwipe = function(amt) {
+    console.log('PARTIAL: ', amt);
   };
 
   $scope.addCard = function() {
@@ -22,16 +65,14 @@ angular.module('starter.controllers', ['firebase'])
     newCard.id = Math.random();
     $scope.cards.push(angular.extend({}, newCard));
   }
-})
 
-.controller('CardCtrl', function($scope, TDCardDelegate) {
   $scope.cardSwipedLeft = function(index) {
-    $scope.addCard();
+    $scope.submitCard(false, index);
   };
   $scope.cardSwipedRight = function(index) {
-    $scope.addCard();
+    $scope.submitCard(true, index);
   };
-})
+}])
 
 .controller('TypesCtrl',
             ['currentAuth', '$state', '$scope', '$firebase',

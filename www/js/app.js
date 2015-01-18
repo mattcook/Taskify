@@ -98,7 +98,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         return Auth.$requireAuth();
       }]
     }
-
   })
 
   .state('app.info-search', {
@@ -123,6 +122,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: "templates/types/filtering.html",
         controller: 'CardsCtrl'
       }
+    },
+    resolve: {
+      'currentAuth': ['Auth', function(Auth) {
+        return Auth.$requireAuth();
+      }]
     }
   })
 

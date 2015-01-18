@@ -313,7 +313,7 @@
           "Album Name": "Whenever You Need Somebody",
           "Album Release Date": "1987"
         },
-        "Required": "Song Alt Name"
+        "required": "Song Alt Name"
       }
     },
     "filtering": {

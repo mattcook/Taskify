@@ -40,6 +40,9 @@ angular.module('starter.controllers', ['firebase'])
   var uid = verifyAuth(auth, $scope, $state);
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types');
 
+  var earnedRef = ref.parent().child('/users/' + uid + '/totalEarned');
+  $scope.user.totalEarned = $firebase(earnedRef).$asObject();
+
   $scope.types = [
   { title: 'Image Categorization',
     id: 'image-categorization',
@@ -75,10 +78,16 @@ angular.module('starter.controllers', ['firebase'])
 
   for(var i=0; i<$scope.types.length; i++) {
     $scope.types[i].sync = $firebase($scope.types[i].ref).$asArray();
+
     var typeKey = $scope.types[i].ref.key();
     var completedLocation = 'users/' + uid + '/tasks/' + typeKey + '/completed';
     var userRef = ref.parent().child(completedLocation);
     $scope.types[i].completed = $firebase(userRef).$asArray();
+
+    var moneyLocation = 'users/' + uid + '/tasks/' + typeKey + '/earned';
+    var moneyRef = ref.parent().child(moneyLocation);
+
+    $scope.types[i].earned = $firebase(moneyRef).$asObject();
   }
 }])
 

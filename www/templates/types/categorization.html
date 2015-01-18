@@ -7,23 +7,24 @@
         <h2>Choose the Best Category</h2>
         <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
       </div>
-
-      <div class="item item-image">
-        <img width="100%" style="max-width:390px;" ng-src="{{categorization.val.image}}"/>
+      <form>
+        <div class="item item-image">
+          <img width="100%" style="max-width:390px;" ng-src="{{categorization.val.image}}"/>
+        </div>
+        <ion-list>
+        <label class="item item-radio" ng-repeat="cat in categorization.val.categories" ng-hide='{{cat == undefined}}'>
+          <input type="radio" name="group" ng-model="formData.category", value="{{cat}}">
+            <div class="item-content">
+              {{cat}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+        </ion-list>
       </div>
-      <ion-list>
-      <label class="item item-radio" ng-repeat="cat in categorization.val.categories" ng-hide='{{cat == undefined}}'>
-          <input type="radio" name="group">
-          <div class="item-content">
-            {{cat}}
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </label>
-      </ion-list>
-    </div>
-    <div class="padding">
-      <button class="button button-block button-outline button-balanced">Submit</button>
-    </div>
+      <div class="padding">
+        <button class="button button-block button-outline button-balanced" ng-click="submitCat()">Submit</button>
+      </div>
+    </form>
 
   </ion-content>
 </ion-view>

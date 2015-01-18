@@ -107,26 +107,54 @@ angular.module('starter.controllers', ['firebase'])
             ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
               function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
   'use strict';
-  verifyAuth(auth, $scope, $state);
-
-  $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
-
+  var uid = verifyAuth(auth, $scope, $state);
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types/categorization');
-  var q = ref.orderByChild('createdAt').limitToFirst(1);
+  var catRef = null;
 
-  $scope.categorization = $firebase(q).$asObject();
-  $scope.categorization.$loaded()
-  .then(function(data) {
-    var key = null
-    for (var i in data) {
-      if (i[0] !== '$' && i !== 'forEach') {
-        key = i;
-        break;
-      }
-    }
-    $scope.categorization.val = $scope.categorization[key];
-    popupModal($scope, $ionicModal);
-  });
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/categorization/last');
+    $scope.formData = {};
+
+    $scope.submitCat = function() {
+      var data = {};
+      data[uid] = $scope.formData.category;
+      catRef.child('responses').update(data);
+
+      catRef.once('value', function(snap) {
+        userLast.transaction(function(current) {
+          current = current ? current : 0;
+          return current < snap.val().createdAt ? snap.val().createdAt : current;
+        });
+      });
+    };
+
+    // Get User Data to find last task completed/skipped
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val() : 0;
+      console.log(lastTime);
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
+      $scope.categorization = $firebase(q).$asObject();
+
+      // Load the last task from firebase
+      $scope.categorization.$loaded()
+      .then(function(data) {
+        console.log(data);
+        var key = null
+        for (var i in data) {
+          if (i[0] !== '$' && i !== 'forEach') {
+            key = i;
+            break;
+          }
+        }
+        // Make the value returned accesible
+        $scope.categorization.val = $scope.categorization[key];
+        catRef = ref.child(key);
+        $scope.helpModalText = $scope.categorization.val.description;
+        popupModal($scope, $ionicModal);
+      });
+    });
+  };
 }])
 
 .controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
@@ -143,6 +171,11 @@ angular.module('starter.controllers', ['firebase'])
 })
 
 .controller('TaggingCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
+  popupModal($scope, $ionicModal);
+})
+
+.controller('TranscribeCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
   popupModal($scope, $ionicModal);
 });
@@ -162,8 +195,7 @@ var verifyAuth = function(auth, $scope, $state) {
         $state.go('login');
       }
     });
-
-    return auth;
+    return auth.uid;
   } else {
     $state.go('login');
     return false;

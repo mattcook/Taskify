@@ -6,8 +6,8 @@
         <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
       </div>
       <div class="item" ng-repeat='(key, value) in info_type.val.provided'>
-        <span>{{key}}</span>
-        <span class="superbold">{{value}}</span>
+        <span class='item-text-wrap'>{{key}}</span>
+        <span class="superbold item-text-wrap">{{value}}</span>
       </div>
     </div>
     <div class='list list-inset'>
@@ -15,7 +15,7 @@
           Please Provide
         </div>
         <div class="item item-input">
-          <input type="text" placeholder="Website" ng-model='formData.response'>
+          <input type="text" placeholder="{{info_type.val.required}}" ng-model='formData.response'>
         </div>
     </div>
     <div class="padding">

@@ -4,51 +4,196 @@
       "id-a1": {
         "status": "open",
         "type": "categorization",
-        "timestamps": {
-          "completed": null,
-          "added": "+0",
-          "updated": "+1"
-        },
-        "title": "An awesome way to waste time!",
-        "description": "Mo money, mo bitches",
-        "price": 0.05,
+        "createdAt": 4236799234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "https://s3.amazonaws.com/bhtemplates/room2.jpg",
+        "price": 0.03,
         "currency": "USD",
         "categories": {
-          "1": "Lorem",
-          "2": "Ipsum",
-          "3": "Sit"
+          "1": "Kitchen",
+          "2": "Living",
+          "3": "Bed",
+          "4": "Bath"
         }
       },
       "id-a2": {
         "status": "open",
         "type": "categorization",
-        "timestamps": {
-          "completed": null,
-          "added": "+0",
-          "updated": "+1"
-        },
-        "title": "An awesome way to waste time!",
-        "description": "Mo money, mo bitches",
-        "price": 0.05,
+        "createdAt": 5236299234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://www.ikea.com/ms/media/roomsettings/20141/kitchen/20141_kiro06e/20141_kiro06e_01_PE375078.jpg",
+        "price": 0.07,
         "currency": "USD",
         "categories": {
-          "1": "Lorem",
-          "2": "Ipsum",
-          "3": "Sit"
-        },
-        "data": {
-          "id-c1": {
-            "title": "A Rob Ford",
-            "directive": "Find the angry face",
-            "image": "http://i.imgur.com/OFflMes.jpg"
-          },
-          "id-c2": {
-            "title": "A cat photos",
-            "directive": null,
-            "image": "https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg"
-          }
+          "1": "Garage",
+          "2": "Living",
+          "3": "Backyard",
+          "4": "Dining"
         }
       }
+      "id-a3": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 3236393234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://stuffpoint.com/cats/image/184228-cats-cute-weird-cat.jpg",
+        "price": 0.03,
+        "currency": "USD",
+        "categories": {
+          "1": "Dog",
+          "2": "Rat",
+          "3": "Cat",
+          "4": "Bat"
+        }
+      }
+      "id-a4": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 6236393234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://mentalfloss.com/sites/default/files/styles/article_640x430/public/120520631-565x418_2.jpg",
+        "price": 0.06,
+        "currency": "USD",
+        "categories": {
+          "1": "Breakfast",
+          "2": "Lunch",
+          "3": "Buffet",
+          "4": "Dinner"
+        }
+      }
+      "id-a5": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 1234593234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://4.bp.blogspot.com/-Bauwp8DUm3g/T-B28dXDeII/AAAAAAAADgY/mpskuapG2uc/s640/hd-red-rose-wallpaper-for-rose-day.jpg",
+        "price": 0.02,
+        "currency": "USD",
+        "categories": {
+          "1": "Orchid",
+          "2": "Dandelion",
+          "3": "Tulip",
+          "4": "Rose"
+        }
+      }
+      "id-a6": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 3236193234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://www.pyramidflowers.com/gallery/sunflower/ring_of_fire_sunflower.jpg",
+        "price": 0.03,
+        "currency": "USD",
+        "categories": {
+          "1": "Daisy",
+          "2": "Sunflower",
+          "3": "Rose",
+          "4": "Tulip"
+        }
+      }
+      "id-a7": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 4386393234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://www.newhaven-apartments.com/images/locations/368/home_slideshow/apartment-neighborhood-new-haven.jpg",
+        "price": 0.09,
+        "currency": "USD",
+        "categories": {
+          "1": "Apartment Building",
+          "2": "House",
+          "3": "Shopping Centre",
+          "4": "Gym"
+        }
+      }
+      "id-a8": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 3236911234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://ireadfaux.com/wp-content/uploads/2012/07/smirnoff_vodka_70cl.jpeg",
+        "price": 0.11,
+        "currency": "USD",
+        "categories": {
+          "1": "Alcohol",
+          "2": "Juice",
+          "3": "Water",
+          "4": "Milk"
+        }
+      }
+      "id-a9": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 2216919994,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://kiwialpine.com/pics/products/K2-obSETHed-Skis.jpg",
+        "price": 0.06,
+        "currency": "USD",
+        "categories": {
+          "1": "Spring",
+          "2": "Summer",
+          "3": "Fall",
+          "4": "Winter"
+        }
+      }
+      "id-a10": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 2597911234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://news.boldride.com/wp-content/uploads/2014/03/Honda-Civic-Type-R-3.jpg",
+        "price": 0.13,
+        "currency": "USD",
+        "categories": {
+          "1": "Family Car",
+          "2": "Sports Car",
+          "3": "Luxury Car",
+          "4": "Economy Car"
+        }
+      }
+      "id-a11": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 3154911234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://www.ford.com/resources/ford/focus/2014/enhancedhighlights/fcs14_st_feat_3.jpg?v=1403026448000",
+        "price": 0.11,
+        "currency": "USD",
+        "categories": {
+          "1": "Family Car",
+          "2": "Sports Car",
+          "3": "Luxury Car",
+          "4": "Economy Car"
+        }
+      }
+      "id-a12": {
+        "status": "open",
+        "type": "categorization",
+        "createdAt": 2966911234,
+        "title": "Choose the Best Category",
+        "description": "Select the category that most appropriately suits the image.",
+        "image": "http://img.21food.com/20110609/product/1211675575328.jpg",
+        "price": 0.11,
+        "currency": "USD",
+        "categories": {
+          "1": "Alcohol",
+          "2": "Juice",
+          "3": "Water",
+          "4": "Milk"
+        }
+      }
+
     },
     "info": "placeholder",
     "filtering": "placeholder",

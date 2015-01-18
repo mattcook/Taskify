@@ -358,83 +358,161 @@
             "image": "https://pbs.twimg.com/profile_images/554783989492228097/7n986fvF.jpeg"
           }
       },
-    "emotion": "placeholder",
+    "emotion": {
+      "id-d1":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d2":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d3":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d4":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d5":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d6":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d7":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+      "id-d8":{
+        "status": "open",
+        "type": "tagging",
+        "createdAt": 123561464,
+        "title": "Choose how you feel",
+        "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
+        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "price": 0.03,
+        "currency": "USD"
+      },
+    },
     "tagging": {
-      "id-a1": {
+      "id-e1": {
         "status": "open",
         "type": "tagging",
         "createdAt": 4236799234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "https://s3.amazonaws.com/bhtemplates/room2.jpg",
-        "price": 0.03,
-        "description": "Select the category that most appropriately suits the image.",
-        "image": "http://www.ikea.com/ms/media/roomsettings/20141/kitchen/20141_kiro06e/20141_kiro06e_01_PE375078.jpg",
         "price": 0.07,
         "currency": "USD"
       },
-      "id-a3": {
+      "id-e3": {
         "status": "open",
         "type": "tagging",
         "createdAt": 3236393234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "http://stuffpoint.com/cats/image/184228-cats-cute-weird-cat.jpg",
         "price": 0.03,
         "currency": "USD"
       },
-      "id-a4": {
+      "id-e4": {
         "status": "open",
         "type": "tagging",
         "createdAt": 6236393234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "http://mentalfloss.com/sites/default/files/styles/article_640x430/public/120520631-565x418_2.jpg",
         "price": 0.06,
         "currency": "USD"
       },
-      "id-a5": {
+      "id-e5": {
         "status": "open",
         "type": "tagging",
         "createdAt": 1234593234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "http://4.bp.blogspot.com/-Bauwp8DUm3g/T-B28dXDeII/AAAAAAAADgY/mpskuapG2uc/s640/hd-red-rose-wallpaper-for-rose-day.jpg",
         "price": 0.02
       },
-      "id-a6": {
+      "id-e6": {
         "status": "open",
         "type": "tagging",
         "createdAt": 3236193234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "http://www.pyramidflowers.com/gallery/sunflower/ring_of_fire_sunflower.jpg",
         "price": 0.03
       },
-      "id-a7": {
+      "id-e7": {
         "status": "open",
         "type": "tagging",
         "createdAt": 4386393234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
-        "image": "http://www.newhaven-apartments.com/images/locations/368/home_slideshow/apartment-neighborhood-new-haven.jpg",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
+        "image": "http://www.newhaven-epartments.com/images/locations/368/home_slideshow/apartment-neighborhood-new-haven.jpg",
         "price": 0.09
       },
-      "id-a8": {
+      "id-e8": {
         "status": "open",
         "type": "tagging",
         "createdAt": 3236911234,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "http://ireadfaux.com/wp-content/uploads/2012/07/smirnoff_vodka_70cl.jpeg",
         "price": 0.11
       },
-      "id-a9": {
+      "id-e9": {
         "status": "open",
         "type": "tagging",
         "createdAt": 2216919994,
-        "title": "Choose the Best Category",
-        "description": "Select the category that most appropriately suits the image.",
+        "title": "Choose the Best Tags",
+        "description": "Input 3 relevant tags for the displayed image."
         "image": "http://kiwialpine.com/pics/products/K2-obSETHed-Skis.jpg",
         "price": 0.06
       }

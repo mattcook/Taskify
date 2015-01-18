@@ -53,7 +53,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'LoginCtrl',
     resolve: {
       'currentAuth': ['Auth', function(Auth) {
-        console.log('login resolve');
         return Auth.$waitForAuth();
       }]
     }
@@ -81,7 +80,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     },
     resolve: {
       'currentAuth': ['Auth', function(Auth) {
-        console.log("requiring auth in types")
         return Auth.$requireAuth();
       }]
     }

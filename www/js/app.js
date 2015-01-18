@@ -26,7 +26,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   });
   $rootScope.$on('$stateChangeError', function() {
-    console.log
     if (arguments[4] === 'AUTH_REQUIRED') $state.go('login');
   });
 }])
@@ -67,7 +66,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'AppCtrl',
     resolve: {
       'currentAuth': ['Auth', function(Auth) {
-        console.log("REQUIRING AUTH IN APP")
         return Auth.$requireAuth();
       }]
     }

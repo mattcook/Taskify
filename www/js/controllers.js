@@ -5,7 +5,6 @@ angular.module('starter.controllers', ['firebase'])
 })
 
 .controller('CardsCtrl', function($scope,$stateParams, $ionicModal, TDCardDelegate) {
-  console.log('CARDS CTRL');
   var cardTypes = [
     { image: 'https://pbs.twimg.com/profile_images/546942133496995840/k7JAxvgq.jpeg' },
     { image: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png' },
@@ -90,7 +89,6 @@ angular.module('starter.controllers', ['firebase'])
   };
 
   if (typeof authStatus !== undefined && authStatus !== null) {
-    console.log(authStatus);
     loginRedirect();
     return;
   }
@@ -98,7 +96,6 @@ angular.module('starter.controllers', ['firebase'])
   $scope.loginData = {};
   $scope.doLogin = function() {
     Auth.$authWithPassword($scope.loginData).then(function(authData) {
-      console.log("Logged in as:", authData.uid);
       loginRedirect(authData);
     }).catch(function(error) {
       alert(error.message);

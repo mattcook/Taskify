@@ -34,9 +34,14 @@ angular.module('starter.controllers', ['firebase'])
   };
 })
 
-.controller('TypesCtrl', function($scope, $firebase) {
+.controller('TypesCtrl',
+            ['currentAuth', '$state', '$scope', '$firebase',
+             function(auth, $state, $scope, $firebase) {
   'use strict';
+  verifyAuth(auth, $scope, $state);
+
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types');
+
   $scope.types = [
   { title: 'Image Categorization',
     id: 'image-categorization',
@@ -73,23 +78,59 @@ angular.module('starter.controllers', ['firebase'])
   for(var i=0; i<$scope.types.length; i++) {
     $scope.types[i].sync = $firebase($scope.types[i].ref).$asArray();
   }
-})
+}])
 
-.controller('TypeCtrl', function($scope, $stateParams) {
-  $scope.pid = $stateParams['typeId'];
-})
+.controller('LoginCtrl',
+            ['currentAuth', 'Auth', '$scope', '$state',
+              function(authStatus,  Auth, $scope, $state) {
+  var loginRedirect = function (authData) {
+    $scope.user = authData;
+    window.$scope = $scope;
+    $state.go('app.types');
+  };
 
-.controller('LoginCtrl', function($scope, $location, $stateParams) {
-  $scope.doLogin = function() {
-    $location.path("app/types")
+  if (typeof authStatus !== undefined && authStatus !== null) {
+    console.log(authStatus);
+    loginRedirect();
+    return;
   }
-})
 
-.controller('CategorizationCtrl', function($scope, $stateParams, $ionicModal) {
+  $scope.loginData = {};
+  $scope.doLogin = function() {
+    Auth.$authWithPassword($scope.loginData).then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+      loginRedirect(authData);
+    }).catch(function(error) {
+      alert(error.message);
+    });
+  }
+}])
+
+.controller('CategorizationCtrl',
+            ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
+              function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
+  'use strict';
+  verifyAuth(auth, $scope, $state);
+
   $scope.modal_text = "Select the category that most appropriately suits the image. If you cannot determine a suitable category, you may skip this task."
-  popupModal($scope, $ionicModal);
 
-})
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/categorization');
+  var q = ref.orderByChild('createdAt').limitToFirst(1);
+
+  $scope.categorization = $firebase(q).$asObject();
+  $scope.categorization.$loaded()
+  .then(function(data) {
+    var key = null
+    for (var i in data) {
+      if (i[0] !== '$' && i !== 'forEach') {
+        key = i;
+        break;
+      }
+    }
+    $scope.categorization.val = $scope.categorization[key];
+    popupModal($scope, $ionicModal);
+  });
+}])
 
 .controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
@@ -108,6 +149,29 @@ angular.module('starter.controllers', ['firebase'])
   $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
   popupModal($scope, $ionicModal);
 });
+
+var verifyAuth = function(auth, $scope, $state) {
+  if (typeof auth !== undefined && auth !== null) {
+    $scope.user = auth;
+    window.$scope = $scope;
+    ref = new Firebase('https://mobile-turk.firebaseio.com/');
+    ref.child('users').child($scope.user.uid).update({
+      lastLogin: Date.now(),
+      email: $scope.user.password.email
+    });
+    ref.onAuth(function(auth) {
+      if (auth === null) {
+        $state.user = null;
+        $state.go('login');
+      }
+    });
+
+    return auth;
+  } else {
+    $state.go('login');
+    return false;
+  }
+}
 
 var popupModal = function($scope, $ionicModal){
   $ionicModal.fromTemplateUrl('templates/help-modal.html', {

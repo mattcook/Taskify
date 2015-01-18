@@ -9,38 +9,17 @@
       </div>
 
       <div class="item item-image">
-          <img width="100%" style="max-width:390px;" src="https://s3.amazonaws.com/bhtemplates/room2.jpg"/>
+        <img width="100%" style="max-width:390px;" ng-src="{{categorization.val.image}}"/>
       </div>
-      <div class="list">
-        <label class="item item-radio">
+      <ion-list>
+      <label class="item item-radio" ng-repeat="cat in categorization.val.categories" ng-hide='{{cat == undefined}}'>
           <input type="radio" name="group">
           <div class="item-content">
-            Kitchen
+            {{cat}}
           </div>
           <i class="radio-icon ion-checkmark"></i>
         </label>
-        <label class="item item-radio">
-          <input type="radio" name="group">
-          <div class="item-content">
-            Living
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </label>
-        <label class="item item-radio">
-          <input type="radio" name="group">
-          <div class="item-content">
-            Bed
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </label>
-        <label class="item item-radio">
-          <input type="radio" name="group">
-          <div class="item-content">
-            Bath
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </label>
-      </div>
+      </ion-list>
     </div>
     <div class="padding">
       <button class="button button-block button-outline button-balanced">Submit</button>

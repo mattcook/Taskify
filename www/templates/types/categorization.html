@@ -5,10 +5,9 @@
         <h2>Choose the Best Category</h2>
         <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
       </div>
-      <form>
-        <div class="bounding-box" style="height: 165px; background-image: url({{category.val.image}})");
-        <ion-list>
+        <div class="bounding-box" style="height: 145px; background-image: url({{category.val.image}})">
         </div>
+        <ion-list>
         <label class="item item-radio" ng-repeat="cat in category.val.categories" ng-hide='{{cat == undefined}}'>
           <input type="radio" name="group" ng-model="formData.category", value="{{cat}}">
             <div class="item-content">
@@ -21,7 +20,5 @@
       <div class="padding">
         <button class="button button-block button-outline button-balanced" ng-click="submitCat()">Submit</button>
       </div>
-    </form>
-
   </ion-content>
 </ion-view>

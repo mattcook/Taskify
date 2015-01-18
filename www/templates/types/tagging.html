@@ -5,37 +5,24 @@
         <h2>Provide 3 Tags For the Image</h2>
         <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
       </div>
-      <form>
-        <div class="bounding-box" style="height: 165px; background-image: url({{category.val.image}})");
-        <ion-list>
-        </div>
-        <label class="item item-radio" ng-repeat="cat in category.val.categories" ng-hide='{{cat == undefined}}'>
-          <input type="radio" name="group" ng-model="formData.category", value="{{cat}}">
-          <div class="item-content">
-            {{cat}}
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
+      <div class="bounding-box" style="height: 165px; background-image: url({{category.val.image}})"></div>
+      </div>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-ios7-pricetag-outline placeholder-icon"></i>
+          <input type="text" placeholder="Tag 1" name='tag1' ng-model="formData.responses[0]">
         </label>
-      </ion-list>
-    </div>
-    <div class="list list-inset">
-      <label class="item item-input">
-        <i class="icon ion-ios7-pricetag-outline placeholder-icon"></i>
-        <input type="text" placeholder="Tag 1">
-      </label>
-      <label class="item item-input">
-        <i class="icon ion-ios7-pricetag-outline placeholder-icon"></i>
-        <input type="text" placeholder="Tag 2">
-      </label>
-      <label class="item item-input">
-        <i class="icon ion-ios7-pricetag-outline placeholder-icon"></i>
-        <input type="text" placeholder="Tag 3">
-      </label>
-    </div>
-    <div class="padding">
-      <button class="button button-block button-outline button-balanced" ng-click="submitCat()">Submit</button>
-    </div>
-  </form>
-
+        <label class="item item-input">
+          <i class="icon ion-ios7-pricetag-outline placeholder-icon"></i>
+          <input type="text" placeholder="Tag 2" name='tag2' ng-model="formData.responses[1]">
+        </label>
+        <label class="item item-input">
+          <i class="icon ion-ios7-pricetag-outline placeholder-icon"></i>
+          <input type="text" placeholder="Tag 3" name='tag3' ng-model="formData.responses[2]">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-outline button-balanced" ng-click="submitCat()">Submit</button>
+      </div>
 </ion-content>
 </ion-view>

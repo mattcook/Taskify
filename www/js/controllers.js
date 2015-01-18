@@ -277,20 +277,152 @@ function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
   };
 }])
 
-.controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
-  popupModal($scope, $ionicModal);
-})
+.controller('EmotionCtrl', ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
+function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
+  var uid = verifyAuth(auth, $scope, $state);
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/emotion');
+  var catRef = null;
 
-.controller('TaggingCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
-  popupModal($scope, $ionicModal);
-})
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/emotion/last');
+    $scope.formData = {};
 
-.controller('TranscribeCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."
-  popupModal($scope, $ionicModal);
-});
+    $scope.submitCat = function() {
+      var data = {};
+      data[uid] = $scope.formData.response;
+      catRef.child('responses').update(data);
+      $scope.formData = {};
+      catRef.once('value', function(snap) {
+        userLast.transaction(function(current) {
+          current = current ? current : 0;
+          return current < snap.val().createdAt ? snap.val().createdAt : current;
+        });
+      });
+    };// Get User Data to find last task completed/skipped
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val() : 0;
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
+      $scope.category = $firebase(q).$asObject();
+
+      // Load the last task from firebase
+      $scope.category.$loaded()
+      .then(function(data) {
+        var key = null
+        for (var i in data) {
+          if (i[0] !== '$' && i !== 'forEach') {
+            key = i;
+            break;
+          }
+        }
+        // Make the value returned accesible
+        $scope.category.val = $scope.category[key];
+        catRef = ref.child(key);
+        $scope.helpModalText = $scope.category.val.description;
+        $scope.helpModalPrice = $scope.category.val.price;
+        popupModal($scope, $ionicModal);
+      });
+    });
+  };
+}])
+
+.controller('TaggingCtrl', ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
+function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
+  var uid = verifyAuth(auth, $scope, $state);
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/tagging');
+  var catRef = null;
+
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/tagging/last');
+    $scope.formData = {};
+
+    $scope.submitCat = function() {
+      var data = {};
+      data[uid] = $scope.formData.responses;
+      catRef.child('responses').update(data);
+      $scope.formData = {};
+      catRef.once('value', function(snap) {
+        userLast.transaction(function(current) {
+          current = current ? current : 0;
+          return current < snap.val().createdAt ? snap.val().createdAt : current;
+        });
+      });
+    };// Get User Data to find last task completed/skipped
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val() : 0;
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
+      $scope.category = $firebase(q).$asObject();
+
+      // Load the last task from firebase
+      $scope.category.$loaded()
+      .then(function(data) {
+        var key = null
+        for (var i in data) {
+          if (i[0] !== '$' && i !== 'forEach') {
+            key = i;
+            break;
+          }
+        }
+        // Make the value returned accesible
+        $scope.category.val = $scope.category[key];
+        catRef = ref.child(key);
+        $scope.helpModalText = $scope.category.val.description;
+        $scope.helpModalPrice = $scope.category.val.price;
+        popupModal($scope, $ionicModal);
+      });
+    });
+  };
+}])
+
+.controller('TranscribeCtrl', ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
+function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
+  var uid = verifyAuth(auth, $scope, $state);
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/transcription');
+  var catRef = null;
+
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/trascription/last');
+    $scope.formData = {};
+
+    $scope.submitCat = function() {
+      var data = {};
+      data[uid] = $scope.formData.response;
+      catRef.child('responses').update(data);
+      $scope.formData = {};
+      catRef.once('value', function(snap) {
+        userLast.transaction(function(current) {
+          current = current ? current : 0;
+          return current < snap.val().createdAt ? snap.val().createdAt : current;
+        });
+      });
+    };// Get User Data to find last task completed/skipped
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val() : 0;
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
+      $scope.category = $firebase(q).$asObject();
+
+      // Load the last task from firebase
+      $scope.category.$loaded()
+      .then(function(data) {
+        var key = null
+        for (var i in data) {
+          if (i[0] !== '$' && i !== 'forEach') {
+            key = i;
+            break;
+          }
+        }
+        // Make the value returned accesible
+        $scope.category.val = $scope.category[key];
+        catRef = ref.child(key);
+        $scope.helpModalText = $scope.category.val.description;
+        $scope.helpModalPrice = $scope.category.val.price;
+        popupModal($scope, $ionicModal);
+      });
+    });
+  };
+}]);
 
 var verifyAuth = function(auth, $scope, $state) {
   if (typeof auth !== undefined && auth !== null) {

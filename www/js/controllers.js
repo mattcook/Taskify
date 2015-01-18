@@ -37,8 +37,7 @@ angular.module('starter.controllers', ['firebase'])
             ['currentAuth', '$state', '$scope', '$firebase',
              function(auth, $state, $scope, $firebase) {
   'use strict';
-  verifyAuth(auth, $scope, $state);
-
+  var uid = verifyAuth(auth, $scope, $state);
   var ref = new Firebase('https://mobile-turk.firebaseio.com/types');
 
   $scope.types = [
@@ -76,6 +75,10 @@ angular.module('starter.controllers', ['firebase'])
 
   for(var i=0; i<$scope.types.length; i++) {
     $scope.types[i].sync = $firebase($scope.types[i].ref).$asArray();
+    var typeKey = $scope.types[i].ref.key();
+    var completedLocation = 'users/' + uid + '/tasks/' + typeKey + '/completed';
+    var userRef = ref.parent().child(completedLocation);
+    $scope.types[i].completed = $firebase(userRef).$asArray();
   }
 }])
 
@@ -192,7 +195,6 @@ angular.module('starter.controllers', ['firebase'])
 var verifyAuth = function(auth, $scope, $state) {
   if (typeof auth !== undefined && auth !== null) {
     $scope.user = auth;
-    window.$scope = $scope;
     ref = new Firebase('https://mobile-turk.firebaseio.com/');
     ref.child('users').child($scope.user.uid).update({
       lastLogin: Date.now(),

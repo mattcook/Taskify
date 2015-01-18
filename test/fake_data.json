@@ -366,79 +366,79 @@
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
         "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "price": 0.09,
         "currency": "USD"
       },
       "id-d2":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 124561464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
+        "phrase": "The official trailer for The Hangover Part II looks amazing. Can't wait to see it! Check it out! http://www.youtube.com/watch?v=ohF5ZO_zOYU",
         "price": 0.03,
         "currency": "USD"
       },
       "id-d3":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 121561464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "phrase": "I would consider purchasing a 3D TV within the next two years.",
+        "price": 0.08,
         "currency": "USD"
       },
       "id-d4":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 128561464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "phrase": "I would consider buying a Hybrid vehicle.",
+        "price": 0.06,
         "currency": "USD"
       },
       "id-d5":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 127561464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "phrase": "Buy Any Kung Fu Panda 2 Game and Get a Blu-ray Combo Pack for Only $9.99 – Best Buy Coupons http://t.co/TczhD28",
+        "price": 0.15,
         "currency": "USD"
       },
       "id-d6":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 129561464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "phrase": "I would consider carpooling with people with shared interests.",
+        "price": 0.07,
         "currency": "USD"
       },
       "id-d7":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 123991464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "phrase": "Entrepreneurship can be a viable alternative to pursuing higher education.",
+        "price": 0.13,
         "currency": "USD"
       },
       "id-d8":{
         "status": "open",
         "type": "tagging",
-        "createdAt": 123561464,
+        "createdAt": 120861464,
         "title": "Choose how you feel",
         "description": "Choose what best describes your thoughts on the following phrase from strongly negative to strongly positive.",
-        "phrase": "If you loved Firefly, TV show, amazing Amazon price for entire series. about $27 BlueRay & $17 DVD.",
-        "price": 0.03,
+        "phrase": "Shopping online can save time and money.",
+        "price": 0.11,
         "currency": "USD"
-      },
+      }
     },
     "tagging": {
       "id-e1": {
@@ -446,7 +446,7 @@
         "type": "tagging",
         "createdAt": 4236799234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "https://s3.amazonaws.com/bhtemplates/room2.jpg",
         "price": 0.07,
         "currency": "USD"
@@ -456,7 +456,7 @@
         "type": "tagging",
         "createdAt": 3236393234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://stuffpoint.com/cats/image/184228-cats-cute-weird-cat.jpg",
         "price": 0.03,
         "currency": "USD"
@@ -466,7 +466,7 @@
         "type": "tagging",
         "createdAt": 6236393234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://mentalfloss.com/sites/default/files/styles/article_640x430/public/120520631-565x418_2.jpg",
         "price": 0.06,
         "currency": "USD"
@@ -476,7 +476,7 @@
         "type": "tagging",
         "createdAt": 1234593234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://4.bp.blogspot.com/-Bauwp8DUm3g/T-B28dXDeII/AAAAAAAADgY/mpskuapG2uc/s640/hd-red-rose-wallpaper-for-rose-day.jpg",
         "price": 0.02
       },
@@ -485,7 +485,7 @@
         "type": "tagging",
         "createdAt": 3236193234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://www.pyramidflowers.com/gallery/sunflower/ring_of_fire_sunflower.jpg",
         "price": 0.03
       },
@@ -494,7 +494,7 @@
         "type": "tagging",
         "createdAt": 4386393234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://www.newhaven-epartments.com/images/locations/368/home_slideshow/apartment-neighborhood-new-haven.jpg",
         "price": 0.09
       },
@@ -503,7 +503,7 @@
         "type": "tagging",
         "createdAt": 3236911234,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://ireadfaux.com/wp-content/uploads/2012/07/smirnoff_vodka_70cl.jpeg",
         "price": 0.11
       },
@@ -512,7 +512,7 @@
         "type": "tagging",
         "createdAt": 2216919994,
         "title": "Choose the Best Tags",
-        "description": "Input 3 relevant tags for the displayed image."
+        "description": "Input 3 relevant tags for the displayed image.",
         "image": "http://kiwialpine.com/pics/products/K2-obSETHed-Skis.jpg",
         "price": 0.06
       }

@@ -1,7 +1,7 @@
 {
-  "name": "mobileturk",
+  "name": "Taskify",
   "version": "1.0.0",
-  "description": "MobileTurk: An Ionic project",
+  "description": "Taskify: A Mobile MTurk",
   "dependencies": {
     "angularfire": "^0.9.1",
     "browserify": "^8.1.1",

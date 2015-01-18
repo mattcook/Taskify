@@ -16,6 +16,6 @@
     </ion-list>
   </ion-content>
   <ion-footer-bar class='bar-stable'>
-    <h1 class="title">{{user.totalEarned.$value | currency}}</h1>
+    <h1 class="title">{{(user.totalEarned.$value || 0) | currency}} Earned</h1>
   </ion-footer-bar>
 </ion-view>

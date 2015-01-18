@@ -185,7 +185,7 @@ angular.module('starter.controllers', ['firebase'])
 .controller('InfoSearchCtrl', ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
 function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
   $scope.openGoogle = function(){
-    window.open('http://google.com', '_blank', 'location=yes');
+    window.open('http://google.com', '_system', 'location=yes');
   };
 
   var uid = verifyAuth(auth, $scope, $state);

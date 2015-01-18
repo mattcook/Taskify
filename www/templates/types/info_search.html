@@ -5,7 +5,7 @@
         Provided Information
         <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
       </div>
-      <div class="item" ng-repeat='(key, value) in info_type.val.provided'>
+      <div class="item" ng-repeat='(key, value) in category.val.provided'>
         <span class='item-text-wrap'>{{key}}:</span>
         <span class="superbold item-text-wrap">{{value}}</span>
       </div>
@@ -15,7 +15,7 @@
           Please Provide
         </div>
         <div class="item item-input">
-          <input type="text" placeholder="{{info_type.val.required}}" ng-model='formData.response'>
+          <input type="text" placeholder="{{category.val.required}}" ng-model='formData.response'>
         </div>
     </div>
     <div class="padding">

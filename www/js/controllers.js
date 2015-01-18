@@ -156,9 +156,9 @@ angular.module('starter.controllers', ['firebase'])
     userLast.on('value', function(snap) {
       var lastTime = snap.val() ? snap.val() : 0;
       var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
-      $scope.categorization = $firebase(q).$asObject();
+      $scope.category = $firebase(q).$asObject();
       // Load the last task from firebase
-      $scope.categorization.$loaded()
+      $scope.category.$loaded()
       .then(function(data) {
         var key = null
         for (var i in data) {
@@ -173,9 +173,10 @@ angular.module('starter.controllers', ['firebase'])
           return false;
         }
         // Make the value returned accesible
-        $scope.categorization.val = $scope.categorization[key];
+        $scope.category.val = $scope.category[key];
         catRef = ref.child(key);
-        $scope.helpModalText = $scope.categorization.val.description;
+        $scope.helpModalText = $scope.category.val.description;
+        $scope.helpModalPrice = $scope.category.val.price;
         popupModal($scope, $ionicModal);
       });
     });
@@ -212,10 +213,10 @@ function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
     userLast.on('value', function(snap) {
       var lastTime = snap.val() ? snap.val() : 0;
       var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
-      $scope.info_type = $firebase(q).$asObject();
+      $scope.category = $firebase(q).$asObject();
 
       // Load the last task from firebase
-      $scope.info_type.$loaded()
+      $scope.category.$loaded()
       .then(function(data) {
         var key = null
         for (var i in data) {
@@ -225,9 +226,10 @@ function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
           }
         }
         // Make the value returned accesible
-        $scope.info_type.val = $scope.info_type[key];
+        $scope.category.val = $scope.category[key];
         catRef = ref.child(key);
-        $scope.helpModalText = $scope.info_type.val.description;
+        $scope.helpModalText = $scope.category.val.description;
+        $scope.helpModalPrice = $scope.category.val.price;
         popupModal($scope, $ionicModal);
       });
     });

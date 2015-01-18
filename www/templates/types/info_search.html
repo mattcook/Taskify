@@ -5,17 +5,9 @@
         Provided Information
         <i class="icon ion-ios7-help-outline" ng-click="openModal()"></i>
       </div>
-      <div class="item">
-        <span>Restaurant Name:</span>
-        <span class="superbold">Angel's Dinner</span>
-      </div>
-      <div class="item">
-        <span>Address:</span>
-        <span class="superbold">310 Strander Blvd Tukwila, WA 98188</span>
-      </div>
-      <div class="item">
-        <span>Phone Number:</span>
-        <span class="superbold">(206) 241-4899</span>
+      <div class="item" ng-repeat='(key, value) in info_type.val.provided'>
+        <span class='item-text-wrap'>{{key}}</span>
+        <span class="superbold item-text-wrap">{{value}}</span>
       </div>
     </div>
     <div class='list list-inset'>
@@ -23,12 +15,12 @@
           Please Provide
         </div>
         <div class="item item-input">
-          <input type="text" placeholder="Website">
+          <input type="text" placeholder="{{info_type.val.required}}" ng-model='formData.response'>
         </div>
     </div>
     <div class="padding">
       <button class="button button-block button-outline button-dark" ng-click="openGoogle()">Open Browser</button>
-      <button class="button button-block button-outline button-balanced">Submit</button>
+      <button class="button button-block button-outline button-balanced" ng-click="submitCat()">Submit</button>
     </div>
   </ion-content>
 </ion-view>

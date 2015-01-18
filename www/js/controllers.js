@@ -178,13 +178,57 @@ angular.module('starter.controllers', ['firebase'])
   };
 }])
 
-.controller('InfoSearchCtrl', function($scope, $stateParams, $ionicModal) {
-  $scope.modal_text = "Using the information provided, please complete the missing field. If you cannot determine an answer, you may skip this task."
-  popupModal($scope, $ionicModal);
-  $scope.openGoogle = function($scope){
-  window.open('http://google.com', '_blank', 'location=yes');
+.controller('InfoSearchCtrl', ['currentAuth', '$scope', '$state', '$stateParams', '$ionicModal', '$firebase',
+function(auth, $scope, $state, $stateParams, $ionicModal, $firebase) {
+  $scope.openGoogle = function(){
+    window.open('http://google.com', '_blank', 'location=yes');
   };
-})
+
+  var uid = verifyAuth(auth, $scope, $state);
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/types/info');
+  var catRef = null;
+
+  if (uid) {
+    var userRef = new Firebase('https://mobile-turk.firebaseio.com/users/' + uid);
+    var userLast = userRef.child('tasks/info/last');
+    $scope.formData = {};
+
+    $scope.submitCat = function() {
+      var data = {};
+      data[uid] = $scope.formData.response;
+      catRef.child('responses').update(data);
+      $scope.formData = {};
+      catRef.once('value', function(snap) {
+        userLast.transaction(function(current) {
+          current = current ? current : 0;
+          return current < snap.val().createdAt ? snap.val().createdAt : current;
+        });
+      });
+    };// Get User Data to find last task completed/skipped
+    userLast.on('value', function(snap) {
+      var lastTime = snap.val() ? snap.val() : 0;
+      var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
+      $scope.info_type = $firebase(q).$asObject();
+
+      // Load the last task from firebase
+      $scope.info_type.$loaded()
+      .then(function(data) {
+        var key = null
+        for (var i in data) {
+          if (i[0] !== '$' && i !== 'forEach') {
+            key = i;
+            break;
+          }
+        }
+        // Make the value returned accesible
+        $scope.info_type.val = $scope.info_type[key];
+        catRef = ref.child(key);
+        $scope.helpModalText = $scope.info_type.val.description;
+        popupModal($scope, $ionicModal);
+      });
+    });
+  };
+}])
 
 .controller('EmotionCtrl', function($scope, $stateParams, $ionicModal) {
   $scope.modal_text = "Pick the best sentiment based on the provided. Ranges from Strongly Negative, Negative, Neutral, Positive, and Strongly Positive from left to right."

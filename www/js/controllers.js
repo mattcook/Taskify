@@ -84,7 +84,6 @@ angular.module('starter.controllers', ['firebase'])
               function(authStatus,  Auth, $scope, $state) {
   var loginRedirect = function (authData) {
     $scope.user = authData;
-    window.$scope = $scope;
     $state.go('app.types');
   };
 
@@ -144,14 +143,12 @@ angular.module('starter.controllers', ['firebase'])
     // Get User Data to find last task completed/skipped
     userLast.on('value', function(snap) {
       var lastTime = snap.val() ? snap.val() : 0;
-      console.log(lastTime);
       var q = ref.orderByChild('createdAt').startAt(lastTime+1).limitToFirst(1);
       $scope.categorization = $firebase(q).$asObject();
 
       // Load the last task from firebase
       $scope.categorization.$loaded()
       .then(function(data) {
-        console.log(data);
         var key = null
         for (var i in data) {
           if (i[0] !== '$' && i !== 'forEach') {

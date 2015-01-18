@@ -1,0 +1,9 @@
+{
+  "firebase": "mobile-turk",
+  "public": "www",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

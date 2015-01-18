@@ -15,6 +15,8 @@ var ngAnnotate = require('browserify-ngannotate');
 var notify     = require('gulp-notify');
 var source     = require('vinyl-source-stream');
 var browserSync  = require('browser-sync');
+var Firebase   = require('firebase');
+var jsonfile   = require('jsonfile');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -93,6 +95,16 @@ gulp.task('install', ['git-check'], function() {
 
 gulp.task('browserify', function() {
   return buildScript('main.js');
+});
+
+gulp.task('rebase', function() {
+  var ref = new Firebase('https://mobile-turk.firebaseio.com/');
+  jsonfile.readFile('test/fake_data.json', function(err, obj) {
+    gutil.log(obj);
+    ref.set(obj, function() {
+      gutil.log('rebase', 'complete');
+    });
+  });
 });
 
 gulp.task('git-check', function(done) {

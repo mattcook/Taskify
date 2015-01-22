@@ -16,3 +16,5 @@ Companies can use this application to receive real, human feedback on their prod
 - scss
 - angular.js
 - ionic
+
+![Taskify Designs](https://www.evernote.com/shard/s26/sh/a58d3885-cd69-47aa-98fa-507aa3a5bb31/777cee1557ef7302/res/4a8c55fb-285d-43b7-8691-d49f35c56d6d/Taskify%20.jpg)
